@@ -323,9 +323,9 @@ const Dashboard = (function(){
             $('.response__container').append('<div class="response__body-twisty twisty active"></div><div><label class="twisty-label">Response:</label></div>').append($responseBody);						
                         
             setTimeout(() => {
-                if(json.responseHeaders['content-type'] === "application/json") {
+                if(typeof json.responseHeaders === 'object') {
                     $responseBody.jsonViewer(json.responseBody);
-                } else {
+                } else {                    
                     $responseBody.text(json.responseBody);
                 }
                 resolve();
